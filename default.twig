@@ -1,0 +1,11 @@
+{% extends "layout.twig" %}
+{% block class %}theme-default{% endblock %}
+{% block content %}
+
+    <!-- Main Widet Zone -->
+
+    {{ zone('header')|raw }}
+    {{ zone('main')|raw }}
+    {{ zone('footer')|raw }}
+
+{% endblock %}
