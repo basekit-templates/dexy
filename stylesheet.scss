@@ -1,62 +1,58 @@
+
 // ----------------------------------
-// BaseKit Standard Theme: Stylesheet
+// BaseKit Rows: Stylesheet
 // ----------------------------------
 
-
-// -----------------------------
-// #Table of Contents
-// -----------------------------
-
-
-// 1. #LESS INCLUDES
-// 2. #PAGE SETTINGS
-// 3. #Mixins
-
-@function bkscale($value, $multiplier) {
-    @if type-of($value) != number {
-        @return $value;
+body:not(.edit) #page-zones__header {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+  }
+  /* prevent sticky from showing in editor mode */
+  body:not(.edit) .row--header-11a .row__container [data-name="responsivecolumns"]:first-child {
+    margin: 30px auto;
+    max-width: 1300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 90%;
+    z-index: 4;
+  }
+  /* mobile tweaks */
+  @media screen and (max-width: 799px) {
+    /* left-align content */
+    .contentgroup--center,
+    *[style*="text-align: center"] {
+      text-align: left !important;
     }
-    @return $value * $multiplier;
-}
-
-@mixin border-radius($radius: 3px) {
-    -webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
-    border-radius: $radius;
-}
-
-@mixin transition($prop: all, $time: 0.5s, $timingFunction: ease) {
-    -webkit-transition: $prop $time $timingFunction;
-    -moz-transition:    $prop $time $timingFunction;
-    -ms-transition:     $prop $time $timingFunction;
-    -o-transition:      $prop $time $timingFunction;
-    transition:         $prop $time $timingFunction;
-}
-
-
-// -----------------------------
-// 1. #LESS Includes
-// -----------------------------
-
-$style-set-id: 'example_01' !default;
-@import 'style-sets';
-
-@import "bk-sass-framework"; // BaseKit LESS Framework
-
-// ** BaseKit LESS Framework is a set of non obtrusive LESS files that can be pulled into
-//    your template to guarentee widgets come to life. Proivides default styles for all widgets.
-
-
-
-// Template Includes
-@import "sass/widgets"; // Widgets
-@import "sass/ios-extendednavigation-fix";
-
-// Plugin Includes
-@import "sass/plugins/plugin-blog"; // Plugin: Blog CSS
-@import "sass/plugins/plugin-menu"; // Plugin: Menu CSS
-@import "sass/plugins/plugin-ecommerce"; // Plugin: Ecommerce CSS
-
-@import "sass/rows/flexbox-mixins";
-@import "sass/rows/layout";
-@import "sass/rows/color";
+    /* hide line breaks */
+    .widget__contentgroup br {
+      display: none !important;
+    }
+    h1, h2, h3, h4, h5, *[class*="wysiwyg-font-size"] {
+      line-height: 1.25 !important;
+    }
+    .healme-booking-widget .button {
+      width: 100% !important;
+    }
+  }
+  
+  /* booking widget */
+  :root {
+    --healme-widget-color-primary: 221 1 133 !important;
+    --healme-widget-border-radius: 8px !important;
+  }
+  .healme-widget * {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+  }
+  .healme-widget .sticky {
+    z-index: 10 !important;
+  }
+  .healme-widget input[type="radio"] {
+    -webkit-appearance: auto !important;
+    appearance: auto !important;
+  }
+    
